@@ -38,6 +38,6 @@ public class DiskScheduling_FCFS {
             total=total+hm[i];
         } 
              
-        System.out.println("The total head movement:" + total); 
+        System.out.println("The total head movement: " + total); 
     }
 }
