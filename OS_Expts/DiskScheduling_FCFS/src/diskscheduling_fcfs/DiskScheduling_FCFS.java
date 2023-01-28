@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package diskscheduling_fifo;
+package diskscheduling_fcfs;
 
 /**
  *
  * @author user
  */
-public class DiskScheduling_FIFO {
+public class DiskScheduling_FCFS {
 
     /**
      * @param args the command line arguments
