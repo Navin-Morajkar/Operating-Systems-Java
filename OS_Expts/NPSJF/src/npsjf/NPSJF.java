@@ -12,7 +12,7 @@ public class NPSJF {
         int n = sc.nextInt();
         
         int pid[] = new int[n];
-        int at[] = new int[n]; // at means arrival time 
+        int at[] = new int[n]; //at means arrival time 
         int bt[] = new int[n]; //btmeans burst time 
         int ct[] = new int[n]; //ctmeans complete time 
         int ta[] = new int[n]; //tameans turn around time 
