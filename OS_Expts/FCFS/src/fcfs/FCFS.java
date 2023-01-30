@@ -1,6 +1,4 @@
-/*
-Experiment 2a - CPU Scheduling Algorithms (First Come First Serve)
- */
+/* Experiment 2a - CPU Scheduling Algorithms (First Come First Serve) */
 package fcfs;
 import java.util.*;
 

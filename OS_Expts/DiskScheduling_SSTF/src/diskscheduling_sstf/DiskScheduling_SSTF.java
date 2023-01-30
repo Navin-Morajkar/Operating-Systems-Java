@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/*Expt 9b - Disk Scheduling Algorithm (Shortest Seek Time First)*/
+
 package diskscheduling_sstf;
 
-/**
- *
- * @author user
- */
+
 public class DiskScheduling_SSTF {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
     
 }
