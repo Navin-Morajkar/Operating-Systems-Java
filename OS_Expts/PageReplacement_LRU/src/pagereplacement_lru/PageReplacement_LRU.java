@@ -66,7 +66,7 @@ public class PageReplacement_LRU {
                 }
             }
         }
-        System.out.println("Hits:" + hits);
-        System.out.println("Miss" + miss);       
+        System.out.println("Hits: " + hits);
+        System.out.println("Misses: " + miss);       
     }    
 }
