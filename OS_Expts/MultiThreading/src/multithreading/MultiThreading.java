@@ -1,13 +1,11 @@
-/* Expt 4 - Multithreading using Runnable interface */
+/* Expt 4a - Multithreading using Runnable interface */
 
 package multithreading;
 
 class MyRunnableThread implements Runnable{
     
     public static int myCount = 0;
-    public MyRunnableThread()
-    {
-    }
+    
     public void run()
     {
         while(MyRunnableThread.myCount<= 10){

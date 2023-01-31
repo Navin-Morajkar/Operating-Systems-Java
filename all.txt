@@ -1,0 +1,214 @@
+# system calls
+# Fork a child
+
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+int main()
+{
+pid_t p;
+printf("Before fork: \n");
+p=fork();
+if(p==0)
+{
+printf("I am a child process having id: %d\n",getpid());
+printf("My parent process's id is: %d\n",getppid());
+}
+else{
+wait(NULL);
+printf("My child process's id is: %d\n",p);
+printf("I am a parent process having id: %d\n",getpid());
+}
+printf("Common\n");
+return 0;
+}
+
+// loggedin users
+#include<stdio.h>
+#include<sys/utsname.h>
+#include<utmp.h>
+#include<time.h>
+int main()
+{
+	struct utmp *n;
+	int c=0;
+	setutent();
+	n=getutent();
+	while(n!=NULL)
+	{
+		if(n->ut_type == 7)
+		c++;
+		n=getutent();
+	}
+	setutent();
+	n=getutent();
+	printf("Number of logged in users= %d\n\n",c);
+	while(n!=NULL)
+	{
+		if(n->ut_type==7)
+		{
+			printf("%s",n->ut_user);
+			printf("%s",n->ut_line);
+			printf("%s",n->ut_host);
+			time_t t;
+			t=n->ut_time;
+			printf("%s\n",ctime(&t));
+		}
+		n=getutent();
+	}
+	return 0;
+}
+
+# ALL devices
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+system("lsusb");
+return 0;
+}
+
+# shell scripts
+# dir operations
+
+while true
+do
+echo "1.Create directory";
+echo "2.Delete directory";
+echo "3.Change directory";
+echo "4.Current working directory";
+echo "5.Exit";
+echo "Enter your choice: ";
+read ch;
+
+case $ch in
+1)
+echo "Enter directory name: ";
+read dir
+if [ -d "$dir" ]; then 
+echo "Directory already exists";
+else
+mkdir $dir
+echo "Directory created";
+ls -t | head -n 15
+fi 
+;; 
+
+2)
+echo "Enter directory name: ";
+read dir
+rmdir $dir
+echo "Directory deleted";
+ls -t | head -n 15
+;;
+
+3)
+echo "Changing cwd to : (enter path): ";
+read path
+cd $path
+pwd
+ls -i
+;;
+
+4)
+echo "Present working directory: ";
+pwd
+;;
+
+5)
+exit;
+;;
+
+esac
+done
+
+# memory map, process info, terminal devices
+
+while true 
+do
+echo "1.Display all Terminal Devices";
+echo "2.Display Memory Map";
+echo "3.Display Processor Info";
+echo "4.Exit";
+echo "Enter your choice: ";
+read ch;
+
+case $ch in
+1)
+echo "All Terminal Devices: ";
+lspci
+;;
+
+2)
+echo "Memory Map: ";
+free -m # less/proc/meminfo
+;;
+
+3)
+echo "Process Information: ";
+cat /proc/cpuinfo
+;;
+
+4)
+exit;
+;;
+
+esac
+done
+
+# users and groups
+while true
+do
+echo "1.Create Group";
+echo "2.Delete Group";
+echo "3.Create Users";
+echo "4.Delete Users";
+echo "5.Display all Users and Groups";
+echo "6.Exit";
+echo "Enter your choice: ";
+read ch
+
+case $ch in
+1)
+echo "Enter Group name: ";
+read gname
+groupadd $gname
+system-config-users
+;;
+
+2)
+echo "Delete Group: ";
+read gname
+groupdel $gname
+system-config-users
+;;
+
+3)
+echo "Enter User name: ";
+read uname
+echo "Enter Group name: ";
+read gname
+useradd $uname -g $gname
+system-config-users
+;;
+
+4)
+echo "Delete User: ";
+read uname
+userdel $uname
+system-config-users
+;;
+
+5)
+echo "All Users and Groups in the System: ";
+system-config-users
+;;
+
+6)
+exit;
+;;
+
+esac
+done
