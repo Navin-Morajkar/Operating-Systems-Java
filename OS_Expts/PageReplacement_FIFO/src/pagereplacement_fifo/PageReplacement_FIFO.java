@@ -24,6 +24,7 @@ public class PageReplacement_FIFO {
         int i;
         int hit = 0;
         int miss = 0;
+        
         for (int val : page) {
             if (frame.size() == 0) //adding the first frame
             {
@@ -35,8 +36,9 @@ public class PageReplacement_FIFO {
             found = 0;
             i = 0;
             
+            //iterating through frames until page found
             while (frame.size() != i) {
-                if (frame.get(i) == val) //iterating through frames until page found
+                if (frame.get(i) == val) 
                 { //if page found--> found=1 || if Page not found --> found=0
                     found = 1;
                     break;
@@ -45,25 +47,23 @@ public class PageReplacement_FIFO {
             }
 
             if (found == 1) //page found
-            {
                 hit++;
-                continue;
-            } else if (found == 0) //page not found
+                
+            else if (found == 0) //page not found
             {
                 if (frame.size() < fno) //if all frames not filled yet
                 {
                     frame.add(val); //apppending the value to the frame 
-                    miss++;
-                    continue;
-                } else { //if frame is full
+                    miss++;                    
+                } 
+                else { //if frame is full
                     frame.remove(0); //remove the first element 
                     frame.add(val); //appending the page reference 
                     miss++;
-                    continue;
                 }
             }
         }
-        System.out.println("Hits:" + hit);
-        System.out.println("Miss" + miss);
+        System.out.println("Hits: " + hit);
+        System.out.println("Misses: " + miss);
     }
 }
