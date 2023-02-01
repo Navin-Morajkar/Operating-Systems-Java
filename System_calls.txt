@@ -1,0 +1,72 @@
+# system calls
+# Fork a child
+
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/wait.h>
+int main()
+{
+pid_t p;
+printf("Before fork: \n");
+p=fork();
+if(p==0)
+{
+printf("I am a child process having id: %d\n",getpid());
+printf("My parent process's id is: %d\n",getppid());
+}
+else{
+wait(NULL);
+printf("My child process's id is: %d\n",p);
+printf("I am a parent process having id: %d\n",getpid());
+}
+printf("Common\n");
+return 0;
+}
+
+// loggedin users
+#include<stdio.h>
+#include<sys/utsname.h>
+#include<utmp.h>
+#include<time.h>
+int main()
+{
+	struct utmp *n;
+	int c=0;
+	setutent();
+	n=getutent();
+	while(n!=NULL)
+	{
+		if(n->ut_type == 7)
+		c++;
+		n=getutent();
+	}
+	setutent();
+	n=getutent();
+	printf("Number of logged in users= %d\n\n",c);
+	while(n!=NULL)
+	{
+		if(n->ut_type==7)
+		{
+			printf("%s",n->ut_user);
+			printf("%s",n->ut_line);
+			printf("%s",n->ut_host);
+			time_t t;
+			t=n->ut_time;
+			printf("%s\n",ctime(&t));
+		}
+		n=getutent();
+	}
+	return 0;
+}
+
+# ALL devices
+
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+system("lsusb");
+return 0;
+}
+
