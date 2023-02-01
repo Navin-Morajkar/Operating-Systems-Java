@@ -10,9 +10,10 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DiningPhilosophers {
 
     public static void main(String[] args) {
-        static int philosophersNumber = 5;
-    static Philosopher philosophers[] = new Philosopher[philosophersNumber];
-    static Fork forks[] = new Fork[philosophersNumber];
+        int philosophersNumber = 5;
+        static Philosopher philosophers[] = new Philosopher[philosophersNumber];
+        static Fork forks[] = new Fork[philosophersNumber];
+    private int philosophersNumber;
 
     static class Fork {
         public Semaphore mutex = new Semaphore(1);
