@@ -24,3 +24,6 @@
 /OS_Expts/DiskScheduling_SSTF/build/
 /OS_Expts/DiskScheduling_SSTF/dist/
 /OS_Expts/DiningPhilosophers/nbproject/private/
+/RoundRobin/nbproject/private/
+/RoundRobin/build/
+/RoundRobin/dist/
