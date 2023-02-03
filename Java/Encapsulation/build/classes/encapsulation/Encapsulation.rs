@@ -1,2 +1,0 @@
-encapsulation.Dog
-encapsulation.Encapsulation
