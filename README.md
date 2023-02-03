@@ -25,7 +25,7 @@ The repository includes the following experiments:
 * [LRU](https://github.com/Navin-Morajkar/Java/blob/master/PageReplacement_LRU/src/pagereplacement_lru/PageReplacement_LRU.java)
 
 6. Disk Scheduling Algorithms
-+ [FCFS]([https://github.com/Navin-Morajkar/Java/blob/master/System%20Calls/forkingChild.c](https://github.com/Navin-Morajkar/Java/blob/master/DiskScheduling_FCFS/src/diskscheduling_fcfs/DiskScheduling_FCFS.java))
++ [FCFS](https://github.com/Navin-Morajkar/Java/blob/master/DiskScheduling_FCFS/src/diskscheduling_fcfs/DiskScheduling_FCFS.java)
 - [SSTF](https://github.com/Navin-Morajkar/Java/blob/master/DiskScheduling_SSTF/src/diskscheduling_sstf/DiskScheduling_SSTF.java)
 
 7. Shell Scipts
